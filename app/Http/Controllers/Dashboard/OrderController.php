@@ -18,7 +18,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $parcels =  Parcel::New()->paginate();
+        $parcels =  Parcel::with('sender')->New()->paginate();
 
         return view('orders.index', compact('parcels'));
     } 
@@ -29,7 +29,7 @@ class OrderController extends Controller
      */
     public function myOrder()
     {
-        $parcels =  Parcel::MineAsBiker()->paginate();
+        $parcels =  Parcel::with('sender')->MineAsBiker()->paginate();
 
         return view('orders.index', compact('parcels'));
     }
