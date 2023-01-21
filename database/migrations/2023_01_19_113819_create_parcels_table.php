@@ -19,14 +19,14 @@ return new class extends Migration
         Schema::create('parcels', function (Blueprint $table) {
             $table->id();
             $table->uuid();
-            $table->foreignIdFor(User::class,'sender_id');
-            $table->foreignIdFor(User::class,'biker_id')->nullable();
+            $table->foreignIdFor(User::class,'sender_id')->index();
+            $table->foreignIdFor(User::class,'biker_id')->index()->nullable();
             $table->string('name');
             $table->string('pick_up');
             $table->string('drop_off');
             $table->timestamp('pick_up_at')->nullable();
             $table->timestamp('drop_off_at')->nullable();
-            $table->tinyInteger('status')->default(1)->comment('1 new parcel');
+            $table->tinyInteger('status')->index()->default(1)->comment('1 new parcel');
             $table->timestamps();
         });
     }
