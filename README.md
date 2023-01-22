@@ -23,7 +23,7 @@ The problems to be addressed are:
 
 # Install
 
-	- Clone project xxxxx
+	- Clone project (https://github.com/Fadllabanie/saloodo-task.git)
 	- Composer install
 	- cp .env.example .env
 	- php artisan key:generate
